@@ -5,6 +5,27 @@ export default class App extends React.Component {
     this.state = {
       data: {}
     }
+    this.fetchURL = `http://${window.location.hostname}:3000`
+  }
+
+  searchByYear = (param) => {
+    fetch(`${this.fetchURL}/events?q=${param}?_page=7&_limit=10`)
+      .then(result => result.json())
+      .then(data => {
+        this.setState({
+          data
+        })
+      })
+  }
+
+  searchByPlace = (param) => {
+    fetch(`${this.fetchURL}/events?q=${param}?_limit=10`)
+      .then(result => result.json())
+      .then(data => {
+        this.setState({
+          data
+        })
+      })
   }
 
   render() {
