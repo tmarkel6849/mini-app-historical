@@ -1,11 +1,13 @@
 const path = require('path')
+      SRC_DIR = path.join(__dirname, '/client/Index.jsx')
+      DIST_DIR = path.join(__dirname, '/public')
 
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, '/client/Index.jsx'),
+  entry: SRC_DIR,
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'public'),
+    path: DIST_DIR,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
